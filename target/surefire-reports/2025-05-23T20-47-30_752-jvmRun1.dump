@@ -1,0 +1,116 @@
+# Created at 2025-05-23T20:47:31.658
+Exiting self fork JVM. Received SHUTDOWN command from Maven shutdown hook.
+Thread dump before exiting the process (25144@DESKTOP-UD0VP2U):
+"main" 
+   java.lang.Thread.State: RUNNABLE
+        at java.base@21.0.2/java.lang.Throwable.fillInStackTrace(Native Method)
+        at java.base@21.0.2/java.lang.Throwable.fillInStackTrace(Throwable.java:820)
+        at java.base@21.0.2/java.lang.Throwable.<init>(Throwable.java:273)
+        at java.base@21.0.2/java.lang.Error.<init>(Error.java:67)
+        at java.base@21.0.2/java.lang.LinkageError.<init>(LinkageError.java:55)
+        at java.base@21.0.2/java.lang.IncompatibleClassChangeError.<init>(IncompatibleClassChangeError.java:54)
+        at java.base@21.0.2/java.lang.NoSuchMethodError.<init>(NoSuchMethodError.java:57)
+        at java.base@21.0.2/java.lang.invoke.MethodHandleNatives.resolve(Native Method)
+        at java.base@21.0.2/java.lang.invoke.MemberName$Factory.resolve(MemberName.java:962)
+        at java.base@21.0.2/java.lang.invoke.MemberName$Factory.resolveOrNull(MemberName.java:1006)
+        at java.base@21.0.2/java.lang.invoke.InvokerBytecodeGenerator.resolveFrom(InvokerBytecodeGenerator.java:647)
+        at java.base@21.0.2/java.lang.invoke.InvokerBytecodeGenerator.lookupPregenerated(InvokerBytecodeGenerator.java:699)
+        at java.base@21.0.2/java.lang.invoke.InvokerBytecodeGenerator.generateCustomizedCode(InvokerBytecodeGenerator.java:708)
+        at java.base@21.0.2/java.lang.invoke.LambdaForm.compileToBytecode(LambdaForm.java:849)
+        at java.base@21.0.2/java.lang.invoke.DirectMethodHandle.makePreparedLambdaForm(DirectMethodHandle.java:303)
+        at java.base@21.0.2/java.lang.invoke.DirectMethodHandle.preparedLambdaForm(DirectMethodHandle.java:231)
+        at java.base@21.0.2/java.lang.invoke.DirectMethodHandle.preparedLambdaForm(DirectMethodHandle.java:216)
+        at java.base@21.0.2/java.lang.invoke.DirectMethodHandle.preparedLambdaForm(DirectMethodHandle.java:225)
+        at java.base@21.0.2/java.lang.invoke.DirectMethodHandle.make(DirectMethodHandle.java:106)
+        at java.base@21.0.2/java.lang.invoke.MethodHandles$Lookup.getDirectMethodCommon(MethodHandles.java:4109)
+        at java.base@21.0.2/java.lang.invoke.MethodHandles$Lookup.getDirectMethodNoSecurityManager(MethodHandles.java:4065)
+        at java.base@21.0.2/java.lang.invoke.MethodHandles$Lookup.getDirectMethodForConstant(MethodHandles.java:4314)
+        at java.base@21.0.2/java.lang.invoke.MethodHandles$Lookup.linkMethodHandleConstant(MethodHandles.java:4262)
+        at java.base@21.0.2/java.lang.invoke.MethodHandleNatives.linkMethodHandleConstant(MethodHandleNatives.java:627)
+        at app//org.apache.logging.log4j.util.ProviderUtil.lazyInit(ProviderUtil.java:157)
+        at app//org.apache.logging.log4j.util.ProviderUtil.getProvider(ProviderUtil.java:126)
+        at app//org.apache.logging.log4j.LogManager.<clinit>(LogManager.java:62)
+        at app//org.apache.logging.slf4j.Log4jLoggerFactory.getContext(Log4jLoggerFactory.java:49)
+        at app//org.apache.logging.log4j.spi.AbstractLoggerAdapter.getLogger(AbstractLoggerAdapter.java:46)
+        at app//org.apache.logging.slf4j.Log4jLoggerFactory.getLogger(Log4jLoggerFactory.java:33)
+        at app//org.slf4j.LoggerFactory.getLogger(LoggerFactory.java:363)
+        at app//org.slf4j.LoggerFactory.getLogger(LoggerFactory.java:388)
+        at app//org.testng.log4testng.Logger.lambda$getLogger$0(Logger.java:30)
+        at app//org.testng.log4testng.Logger$$Lambda/0x000001da10019aa0.apply(Unknown Source)
+        at java.base@21.0.2/java.util.concurrent.ConcurrentHashMap.computeIfAbsent(ConcurrentHashMap.java:1708)
+        at app//org.testng.log4testng.Logger.getLogger(Logger.java:30)
+        at app//org.testng.TestNG.<clinit>(TestNG.java:111)
+        at app//org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:318)
+        at app//org.apache.maven.surefire.testng.TestNGXmlTestSuite.execute(TestNGXmlTestSuite.java:74)
+        at app//org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:123)
+        at app//org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:456)
+        at app//org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:169)
+        at app//org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:595)
+        at app//org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:581)
+
+"Reference Handler" 
+   java.lang.Thread.State: RUNNABLE
+        at java.base@21.0.2/java.lang.ref.Reference.waitForReferencePendingList(Native Method)
+        at java.base@21.0.2/java.lang.ref.Reference.processPendingReferences(Reference.java:246)
+        at java.base@21.0.2/java.lang.ref.Reference$ReferenceHandler.run(Reference.java:208)
+
+"Finalizer" 
+   java.lang.Thread.State: WAITING
+        at java.base@21.0.2/java.lang.Object.wait0(Native Method)
+        at java.base@21.0.2/java.lang.Object.wait(Object.java:366)
+        at java.base@21.0.2/java.lang.Object.wait(Object.java:339)
+        at java.base@21.0.2/java.lang.ref.NativeReferenceQueue.await(NativeReferenceQueue.java:48)
+        at java.base@21.0.2/java.lang.ref.ReferenceQueue.remove0(ReferenceQueue.java:158)
+        at java.base@21.0.2/java.lang.ref.NativeReferenceQueue.remove(NativeReferenceQueue.java:89)
+        at java.base@21.0.2/java.lang.ref.Finalizer$FinalizerThread.run(Finalizer.java:173)
+
+"Signal Dispatcher" 
+   java.lang.Thread.State: RUNNABLE
+
+"Attach Listener" 
+   java.lang.Thread.State: RUNNABLE
+
+"Notification Thread" 
+   java.lang.Thread.State: RUNNABLE
+
+"Common-Cleaner" 
+   java.lang.Thread.State: TIMED_WAITING
+        at java.base@21.0.2/jdk.internal.misc.Unsafe.park(Native Method)
+        at java.base@21.0.2/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:269)
+        at java.base@21.0.2/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.await(AbstractQueuedSynchronizer.java:1847)
+        at java.base@21.0.2/java.lang.ref.ReferenceQueue.await(ReferenceQueue.java:71)
+        at java.base@21.0.2/java.lang.ref.ReferenceQueue.remove0(ReferenceQueue.java:143)
+        at java.base@21.0.2/java.lang.ref.ReferenceQueue.remove(ReferenceQueue.java:218)
+        at java.base@21.0.2/jdk.internal.ref.CleanerImpl.run(CleanerImpl.java:140)
+        at java.base@21.0.2/java.lang.Thread.runWith(Thread.java:1596)
+        at java.base@21.0.2/java.lang.Thread.run(Thread.java:1583)
+        at java.base@21.0.2/jdk.internal.misc.InnocuousThread.run(InnocuousThread.java:186)
+
+"surefire-forkedjvm-stream-flusher" 
+   java.lang.Thread.State: TIMED_WAITING
+        at java.base@21.0.2/jdk.internal.misc.Unsafe.park(Native Method)
+        at java.base@21.0.2/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:269)
+        at java.base@21.0.2/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:1758)
+        at java.base@21.0.2/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:1182)
+        at java.base@21.0.2/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:899)
+        at java.base@21.0.2/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1070)
+        at java.base@21.0.2/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1130)
+        at java.base@21.0.2/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+        at java.base@21.0.2/java.lang.Thread.runWith(Thread.java:1596)
+        at java.base@21.0.2/java.lang.Thread.run(Thread.java:1583)
+
+"surefire-forkedjvm-command-thread" 
+   java.lang.Thread.State: RUNNABLE
+        at java.management@21.0.2/sun.management.ThreadImpl.getThreadInfo1(Native Method)
+        at java.management@21.0.2/sun.management.ThreadImpl.getThreadInfo(ThreadImpl.java:187)
+        at app//org.apache.maven.surefire.booter.ForkedBooter.generateThreadDump(ForkedBooter.java:683)
+        at app//org.apache.maven.surefire.booter.ForkedBooter.access$600(ForkedBooter.java:80)
+        at app//org.apache.maven.surefire.booter.ForkedBooter$4.update(ForkedBooter.java:368)
+        at app//org.apache.maven.surefire.booter.CommandReader$CommandRunnable.callListeners(CommandReader.java:426)
+        at app//org.apache.maven.surefire.booter.CommandReader$CommandRunnable.exitByConfiguration(CommandReader.java:438)
+        at app//org.apache.maven.surefire.booter.CommandReader$CommandRunnable.run(CommandReader.java:390)
+        at java.base@21.0.2/java.lang.Thread.runWith(Thread.java:1596)
+        at java.base@21.0.2/java.lang.Thread.run(Thread.java:1583)
+
+
+
