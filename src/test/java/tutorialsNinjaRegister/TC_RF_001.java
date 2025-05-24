@@ -40,7 +40,7 @@ public class TC_RF_001 extends BaseClass {
 		//driver.findElement(By.xpath("//span[text()='My Account']")).click();
 		//driver.findElement(By.linkText("Register")).click();
 
-		driver.findElement(By.id("input-firstname")).sendKeys("Arun");
+		driver.findElement(By.id("input-firstname")).sendKeys("Debanjan");
 		driver.findElement(By.id("input-lastname")).sendKeys("Motoori");
 		driver.findElement(By.id("input-email")).sendKeys(Utilities.generatebrandNewEmail());
 		driver.findElement(By.id("input-telephone")).sendKeys("1234567890");
