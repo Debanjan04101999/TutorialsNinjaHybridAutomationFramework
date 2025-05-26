@@ -46,6 +46,9 @@ public class RegisterPage extends BasePage {
 
 	@FindBy(className = "col-sm-9")
 	private WebElement errorMessage;
+	
+	@FindBy(xpath = "//div[@class='alert alert-danger alert-dismissible']")
+	private WebElement existingEmailWarning;
 
 	public void enterFirstName(String firstNameText) {
 		firstNameField.sendKeys(firstNameText);
@@ -99,5 +102,10 @@ public class RegisterPage extends BasePage {
 		return errorMessage.getText();
 
 	}
+	
+	public String getExistingEmailWarning() {
+		return existingEmailWarning.getText();
+	}
+
 
 }
