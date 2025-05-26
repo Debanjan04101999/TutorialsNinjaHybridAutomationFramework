@@ -7,7 +7,7 @@
         <methods>
           <include name="setup"/>
           <include name="teardown"/>
-          <include name="verifyRegisteringAccountByProvidingMismatchingPasswords"/>
+          <include name="verifyRegisteringAccountByProvidingExistingAcountDetails"/>
         </methods>
       </class> <!-- tutorialsNinjaAllTestCases.RegisteAllTest -->
     </classes>

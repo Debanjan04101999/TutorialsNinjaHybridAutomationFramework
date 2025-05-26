@@ -236,5 +236,31 @@ public class RegisteAllTest extends BaseClass {
 				expectedError);
 
 	}
+	
+	@Test(priority = 8)
+	public void verifyRegisteringAccountByProvidingExistingAcountDetails() throws InterruptedException {
+
+		landingPage = new LandingPage(driver);
+		landingPage.clickOnMyAccountDropMenu();
+		registerPage = landingPage.selectRegisterOption();
+
+		registerPage.enterFirstName(prop.getProperty("firstName"));
+		registerPage.enterLastName(prop.getProperty("lastName"));
+		registerPage.enterEmail(prop.getProperty("validEmailOne"));
+		registerPage.enterTelephoneNumber(prop.getProperty("telephoneNumber"));
+		registerPage.enterPassword(prop.getProperty("validPassword"));
+		registerPage.enterConfirmPassword(prop.getProperty("validPassword"));
+		registerPage.selectNoForNewsletter();
+		registerPage.selectPrivacyPolicyOption();
+		accountSuccessPage = registerPage.clickContinueButton();
+		Thread.sleep(5000);
+		
+		String expectedError = "Warning: E-Mail Address is already registered!";
+
+		Assert.assertEquals(
+				driver.findElement(By.className("alert-dismissible")).getText(),
+				expectedError);
+
+	}
 
 }

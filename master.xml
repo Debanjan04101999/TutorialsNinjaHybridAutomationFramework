@@ -7,7 +7,7 @@
 
 				<methods>
 					<include
-						name="verifyRegisteringAccountByProvidingMismatchingPasswords" />
+						name="verifyRegisteringAccountByProvidingExistingAcountDetails" />
 				 </methods>
 
 			</class>

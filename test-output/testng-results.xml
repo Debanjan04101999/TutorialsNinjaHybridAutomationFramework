@@ -2,12 +2,12 @@
 <testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2025-05-23T20:33:46 IST" name="Suite" finished-at="2025-05-23T20:33:59 IST" duration-ms="12803">
+  <suite started-at="2025-05-26T11:58:55 IST" name="Suite" finished-at="2025-05-26T11:59:06 IST" duration-ms="11084">
     <groups>
     </groups>
-    <test started-at="2025-05-23T20:33:46 IST" name="Test" finished-at="2025-05-23T20:33:59 IST" duration-ms="12803">
+    <test started-at="2025-05-26T11:58:55 IST" name="Test" finished-at="2025-05-26T11:59:06 IST" duration-ms="11084">
       <class name="tutorialsNinjaAllTestCases.RegisteAllTest">
-        <test-method is-config="true" signature="setup(java.lang.String,java.lang.String)[pri:0, instance:tutorialsNinjaAllTestCases.RegisteAllTest@302a07d]" started-at="2025-05-23T20:33:46 IST" name="setup" finished-at="2025-05-23T20:33:51 IST" duration-ms="5393" status="PASS">
+        <test-method is-config="true" signature="setup(java.lang.String,java.lang.String)[pri:0, instance:tutorialsNinjaAllTestCases.RegisteAllTest@7e8dcdaa]" started-at="2025-05-26T11:58:55 IST" name="setup" finished-at="2025-05-26T11:58:59 IST" duration-ms="3705" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -23,11 +23,11 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method signature="verifyRegisteringAccountByProvidingMismatchingPasswords()[pri:8, instance:tutorialsNinjaAllTestCases.RegisteAllTest@302a07d]" started-at="2025-05-23T20:33:51 IST" name="verifyRegisteringAccountByProvidingMismatchingPasswords" finished-at="2025-05-23T20:33:58 IST" duration-ms="7153" status="PASS">
+        <test-method signature="verifyRegisteringAccountByProvidingExistingAcountDetails()[pri:8, instance:tutorialsNinjaAllTestCases.RegisteAllTest@7e8dcdaa]" started-at="2025-05-26T11:58:59 IST" name="verifyRegisteringAccountByProvidingExistingAcountDetails" finished-at="2025-05-26T11:59:06 IST" duration-ms="7179" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- verifyRegisteringAccountByProvidingMismatchingPasswords -->
-        <test-method is-config="true" signature="teardown()[pri:0, instance:tutorialsNinjaAllTestCases.RegisteAllTest@302a07d]" started-at="2025-05-23T20:33:58 IST" name="teardown" finished-at="2025-05-23T20:33:59 IST" duration-ms="208" status="PASS">
+        </test-method> <!-- verifyRegisteringAccountByProvidingExistingAcountDetails -->
+        <test-method is-config="true" signature="teardown()[pri:0, instance:tutorialsNinjaAllTestCases.RegisteAllTest@7e8dcdaa]" started-at="2025-05-26T11:59:06 IST" name="teardown" finished-at="2025-05-26T11:59:06 IST" duration-ms="152" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- teardown -->
