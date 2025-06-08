@@ -8,7 +8,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import utilities.Utilities;
+import genericUtilities.Utilities;
 
 public class TC_RF_005 {
 

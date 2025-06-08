@@ -10,9 +10,9 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-import pageObjects.LandingPage;
+import genericUtilities.Utilities;
+import pageObjectsRepo.LandingPage;
 import testBaseClass.BaseClass;
-import utilities.Utilities;
 
 public class TC_RF_001 extends BaseClass {
 	

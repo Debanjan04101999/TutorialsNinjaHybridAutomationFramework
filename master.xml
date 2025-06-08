@@ -7,7 +7,7 @@
 
 				<methods>
 					<include
-						name="verifyRegisteringAccountByProvidingExistingAcountDetails" />
+						name="validateDifferentWysOfNavigatingToRegisterAccountPage" />
 				 </methods>
 
 			</class>

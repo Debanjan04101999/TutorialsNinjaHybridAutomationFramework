@@ -5,13 +5,9 @@
     <classes>
       <class name="tutorialsNinjaAllTestCases.RegisteAllTest">
         <methods>
-          <include name="verifyRegistingAccountUsingMandtoryFields"/>
-          <include name="verifyRegisterWhenNoOptionIsSelectedForNewsletterField"/>
           <include name="setup"/>
           <include name="verifyRegisterWithoutProvidingAnyFields"/>
           <include name="teardown"/>
-          <include name="validateregisteringAnAccountByprovidingAllTheFields"/>
-          <include name="verifyRegisterWhenYesOptionIsSelectedForNewsletterField"/>
         </methods>
       </class> <!-- tutorialsNinjaAllTestCases.RegisteAllTest -->
     </classes>

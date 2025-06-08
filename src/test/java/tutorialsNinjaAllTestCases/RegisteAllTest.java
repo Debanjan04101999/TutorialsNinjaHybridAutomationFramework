@@ -1,17 +1,21 @@
 package tutorialsNinjaAllTestCases;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
 import org.testng.Assert;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
+import genericUtilities.Utilities;
+import genericUtilities.loggerUtil;
+import pageObjectsRepo.AccountPage;
+import pageObjectsRepo.AccountSuccessPage;
+import pageObjectsRepo.LandingPage;
+import pageObjectsRepo.LoginPage;
+import pageObjectsRepo.NewsletterSubscriptionPage;
+import pageObjectsRepo.RegisterPage;
+import pageObjectsRepo.RightColumnOption;
 import testBaseClass.BaseClass;
-import utilities.Utilities;
-import pageObjects.AccountPage;
-import pageObjects.AccountSuccessPage;
-import pageObjects.LandingPage;
-import pageObjects.LoginPage;
-import pageObjects.NewsletterSubscriptionPage;
-import pageObjects.RegisterPage;
 import testBaseClass.BaseClass;
 
 public class RegisteAllTest extends BaseClass {
@@ -21,12 +25,19 @@ public class RegisteAllTest extends BaseClass {
 	AccountPage accountPage;
 	NewsletterSubscriptionPage newsletterSubscriptionPage;
 	LoginPage loginPage;
+	RightColumnOption rightColumnOption;
 
-	@Test(priority = 1)
-	public void verifyRegistingAccountUsingMandtoryFields() {
+	@BeforeMethod
+	public void setup() {
+
 		landingPage = new LandingPage(driver);
 		landingPage.clickOnMyAccountDropMenu();
 		registerPage = landingPage.selectRegisterOption();
+
+	}
+
+	@Test(priority = 1)
+	public void verifyRegistingAccountUsingMandtoryFields() {
 
 		registerPage.enterFirstName(prop.getProperty("firstName"));
 		registerPage.enterLastName(prop.getProperty("lastName"));
@@ -68,9 +79,6 @@ public class RegisteAllTest extends BaseClass {
 
 	@Test(priority = 3)
 	public void validateregisteringAnAccountByprovidingAllTheFields() {
-		landingPage = new LandingPage(driver);
-		landingPage.clickOnMyAccountDropMenu();
-		registerPage = landingPage.selectRegisterOption();
 
 		registerPage.enterFirstName(prop.getProperty("firstName"));
 		registerPage.enterLastName(prop.getProperty("lastName"));
@@ -109,10 +117,8 @@ public class RegisteAllTest extends BaseClass {
 
 	@Test(priority = 4)
 	public void verifyRegisterWithoutProvidingAnyFields() {
-		driver.findElement(By.xpath("//span[text()='My Account']")).click();
-		driver.findElement(By.linkText("Register")).click();
 
-		driver.findElement(By.xpath("//input[@value='Continue']")).click();
+		registerPage.clickContinueButton();
 
 		String expectedFirstNameWarning = "First Name must be between 1 and 32 characters!";
 		String expectedLastNameWarning = "Last Name must be between 1 and 32 characters!";
@@ -121,30 +127,17 @@ public class RegisteAllTest extends BaseClass {
 		String expectedPasswordWarning = "Password must be between 4 and 20 characters!";
 		String expectedPrivacyPolicyWarning = "Warning: You must agree to the Privacy Policy!";
 
-		Assert.assertEquals(
-				driver.findElement(By.xpath("//input[@id=\"input-firstname\"]/following-sibling::div")).getText(),
-				expectedFirstNameWarning);
-		Assert.assertEquals(
-				driver.findElement(By.xpath("//input[@id=\"input-lastname\"]/following-sibling::div")).getText(),
-				expectedLastNameWarning);
-		Assert.assertEquals(driver.findElement(By.xpath("//input[@id='input-email']/following-sibling::div")).getText(),
-				expectedEmailWarning);
-		Assert.assertEquals(
-				driver.findElement(By.xpath("//input[@id='input-telephone']/following-sibling::div")).getText(),
-				expectedTelephoneWarning);
-		Assert.assertEquals(
-				driver.findElement(By.xpath("//input[@id='input-password']/following-sibling::div")).getText(),
-				expectedPasswordWarning);
-		Assert.assertEquals(
-				driver.findElement(By.xpath("//div[@class='alert alert-danger alert-dismissible']")).getText(),
-				expectedPrivacyPolicyWarning);
+		Assert.assertEquals(registerPage.getPrivacyPolicyWarning(), expectedPrivacyPolicyWarning);
+		Assert.assertEquals(registerPage.getFirstNameWarning(), expectedFirstNameWarning);
+		Assert.assertEquals(registerPage.getLastNameWarning(), expectedLastNameWarning);
+		Assert.assertEquals(registerPage.getEmailWarning(), expectedEmailWarning);
+		Assert.assertEquals(registerPage.getTelephoneWarning(), expectedTelephoneWarning);
+		Assert.assertEquals(registerPage.getPasswordWarning(), expectedPasswordWarning);
+
 	}
 
 	@Test(priority = 5)
 	public void verifyRegisterWhenYesOptionIsSelectedForNewsletterField() {
-		landingPage = new LandingPage(driver);
-		landingPage.clickOnMyAccountDropMenu();
-		registerPage = landingPage.selectRegisterOption();
 
 		registerPage.enterFirstName(prop.getProperty("firstName"));
 		registerPage.enterLastName(prop.getProperty("lastName"));
@@ -164,9 +157,6 @@ public class RegisteAllTest extends BaseClass {
 
 	@Test(priority = 6)
 	public void verifyRegisterWhenNoOptionIsSelectedForNewsletterField() {
-		landingPage = new LandingPage(driver);
-		landingPage.clickOnMyAccountDropMenu();
-		registerPage = landingPage.selectRegisterOption();
 
 		registerPage.enterFirstName(prop.getProperty("firstName"));
 		registerPage.enterLastName(prop.getProperty("lastName"));
@@ -187,27 +177,19 @@ public class RegisteAllTest extends BaseClass {
 	@Test(priority = 7)
 	public void validateDifferentWysOfNavigatingToRegisterAccountPage() throws InterruptedException {
 
-		landingPage = new LandingPage(driver);
 		landingPage.clickOnMyAccountDropMenu();
 		registerPage = landingPage.selectRegisterOption();
-		Assert.assertTrue(
-				driver.findElement(By.cssSelector("div[id='account-register'] li:nth-child(3) a:nth-child(1)"))
-						.isDisplayed());
+		Assert.assertTrue(registerPage.didWeNavigatToRegisterPage());
 
-		landingPage = new LandingPage(driver);
 		landingPage.clickOnMyAccountDropMenu();
 		loginPage = landingPage.selectLoginOption();
 		loginPage.clickOnnewCustomerContinueButton();
-		Assert.assertTrue(
-				driver.findElement(By.cssSelector("div[id='account-register'] li:nth-child(3) a:nth-child(1)"))
-						.isDisplayed());
+		Assert.assertTrue(registerPage.didWeNavigatToRegisterPage());
 
-		
-		landingPage = new LandingPage(driver);
 		landingPage.clickOnMyAccountDropMenu();
 		loginPage = landingPage.selectLoginOption();
-		Thread.sleep(5000);
-		
+		registerPage = loginPage.clickOnRegisterOption();
+		Assert.assertTrue(registerPage.didWeNavigatToRegisterPage());
 
 	}
 
@@ -228,15 +210,13 @@ public class RegisteAllTest extends BaseClass {
 		registerPage.selectPrivacyPolicyOption();
 		accountSuccessPage = registerPage.clickContinueButton();
 		Thread.sleep(5000);
-		
+
 		String expectedError = "Password confirmation does not match password!";
 
-		Assert.assertEquals(
-				driver.findElement(By.xpath("//input[@id='input-confirm']/following-sibling::div")).getText(),
-				expectedError);
+		Assert.assertEquals(registerPage.getPasswordConfirmMismatchWarning(), expectedError);
 
 	}
-	
+
 	@Test(priority = 9)
 	public void verifyRegisteringAccountByProvidingExistingAcountDetails() throws InterruptedException {
 
@@ -254,13 +234,13 @@ public class RegisteAllTest extends BaseClass {
 		registerPage.selectPrivacyPolicyOption();
 		accountSuccessPage = registerPage.clickContinueButton();
 		Thread.sleep(5000);
-		
+
 		String expectedError = "Warning: E-Mail Address is already registered!";
 
-		Assert.assertEquals(registerPage.getExistingEmailWarning(),expectedError);
+		Assert.assertEquals(registerPage.getExistingEmailWarning(), expectedError);
 
 	}
-	
+
 	@Test(priority = 10)
 	public void verifyRegisteringAccountByProvidingInvalideEmail() throws InterruptedException {
 
@@ -268,6 +248,7 @@ public class RegisteAllTest extends BaseClass {
 		landingPage.clickOnMyAccountDropMenu();
 		registerPage = landingPage.selectRegisterOption();
 
+		loggerUtil.logger.info("******Starting verifyRegisteringAccountByProvidingInvalideEmail******");
 		registerPage.enterFirstName(prop.getProperty("firstName"));
 		registerPage.enterLastName(prop.getProperty("lastName"));
 		registerPage.enterEmail(prop.getProperty("invalidEmail"));
@@ -278,12 +259,43 @@ public class RegisteAllTest extends BaseClass {
 		registerPage.selectPrivacyPolicyOption();
 		accountSuccessPage = registerPage.clickContinueButton();
 		Thread.sleep(5000);
-		
+
 		String expectedError = "Warning: E-Mail Address is already registered!";
 
-		Assert.assertEquals(
-				driver.findElement(By.className("alert-dismissible")).getText(),
-				expectedError);
+		Assert.assertEquals(driver.findElement(By.className("alert-dismissible")).getText(), expectedError);
+
+	}
+
+	@Test(priority = 11)
+	public void verifyRegisteringAccountByProvidingInvalidePhoneNumber() throws InterruptedException {
+
+		landingPage = new LandingPage(driver);
+		landingPage.clickOnMyAccountDropMenu();
+		registerPage = landingPage.selectRegisterOption();
+
+		loggerUtil.logger.info("******Starting verifyRegisteringAccountByProvidingInvalideTelePhoneNumber******");
+		registerPage.enterFirstName(prop.getProperty("firstName"));
+		registerPage.enterLastName(prop.getProperty("lastName"));
+		registerPage.enterEmail(Utilities.generatebrandNewEmail());
+		registerPage.enterTelephoneNumber(prop.getProperty("invalidtelephoneNumber"));
+		registerPage.enterPassword(prop.getProperty("validPassword"));
+		registerPage.enterConfirmPassword(prop.getProperty("validPassword"));
+		registerPage.selectNoForNewsletter();
+		registerPage.selectPrivacyPolicyOption();
+		accountSuccessPage = registerPage.clickContinueButton();
+
+		String expectedWarningMessage = "Telephone number entered by you is invalid!";
+		String actualWarningMessage = registerPage.getTelephoneWarning();
+		Assert.assertEquals(actualWarningMessage, expectedWarningMessage);
+
+		/*
+		 * boolean state = false; try { if
+		 * (registerPage.getTelephoneWarning().contains(expectedWarningMessage)) { state
+		 * =true; }
+		 * 
+		 * } catch (NoSuchElementException e) { state =false; }
+		 * Assert.assertTrue(state);
+		 */
 
 	}
 
