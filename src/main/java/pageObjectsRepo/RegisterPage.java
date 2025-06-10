@@ -60,22 +60,21 @@ public class RegisterPage extends BasePage {
 
 	@FindBy(xpath = "//input[@id='input-password']/following-sibling::div")
 	private WebElement passwordWarning;
-	
+
 	@FindBy(className = "text-danger")
 	private WebElement passworconfirmationMismatchWarning;
-	
-	
-	
+
 	@FindBy(css = ".alert")
 	private WebElement PrivacyPolicyWarning;
-	
-
 
 	@FindBy(xpath = "//div[@class='alert alert-danger alert-dismissible']")
 	private WebElement existingEmailWarning;
-	
-	@FindBy(css= "div[id='account-register'] li:nth-child(3) a:nth-child(1)")
+
+	@FindBy(css = "div[id='account-register'] li:nth-child(3) a:nth-child(1)")
 	private WebElement registerPageBreadcrumb;
+	
+	@FindBy(css = "div[id='content'] h1")
+	private WebElement registerPageHeading;
 
 	public void enterFirstName(String firstNameText) {
 		firstNameField.sendKeys(firstNameText);
@@ -118,6 +117,10 @@ public class RegisterPage extends BasePage {
 			privacyPolicyField.click();
 		}
 	}
+	public boolean isPrivacyPolicyOptionSelected() {
+		
+		return privacyPolicyField.isSelected();
+	}
 
 	public AccountSuccessPage clickContinueButton() {
 		continueButton.click();
@@ -134,21 +137,17 @@ public class RegisterPage extends BasePage {
 		return existingEmailWarning.getText();
 	}
 
-	
 	public String getPrivacyPolicyWarning() {
 		return PrivacyPolicyWarning.getText();
 	}
 
-	
 	public String getPasswordWarning() {
 		return passwordWarning.getText();
 	}
-	
+
 	public String getPasswordConfirmMismatchWarning() {
 		return passworconfirmationMismatchWarning.getText();
 	}
-	
-	
 
 	public String getEmailWarning() {
 		return emailWarning.getText();
@@ -164,9 +163,9 @@ public class RegisterPage extends BasePage {
 
 	public String getFirstNameWarning() {
 		return firstNameWarning.getText();
-		
+
 	}
-	
+
 	public boolean didWeNavigatToRegisterPage() {
 		return registerPageBreadcrumb.isDisplayed();
 	}
@@ -191,4 +190,43 @@ public class RegisterPage extends BasePage {
 		return passwordWarning.isDisplayed();
 	}
 
+	public String getFirstNameFieldPlaceholderText() {
+		return firstNameField.getAttribute("placeholder");
+	}
+
+	public String getLastNameFieldPlaceholderText() {
+		return lastNameField.getAttribute("placeholder");
+	}
+
+	public String getEmailFieldPlaceholderText() {
+		return emailField.getAttribute("placeholder");
+
+	}
+
+	public String getTelephoneFieldPlaceholderText() {
+		return telephoneField.getAttribute("placeholder");
+	}
+
+	public String getPasswordFieldPlaceholderText() {
+		return passwordField.getAttribute("placeholder");
+	}
+
+	public String getPasswordConfirmFieldPlaceholderText() {
+		return passwordConfirmField.getAttribute("placeholder");
+	}
+
+	public String getPageHeading() {
+
+		return registerPageHeading.getText();
+	}
+
+	public String getPasswordFieldDomAttribute(String attributeName) {
+		return passwordField.getAttribute(attributeName);
+	}
+	
+	public String getPasswordConfirmFieldDomAttribute(String attributeName) {
+		return passwordConfirmField.getAttribute(attributeName);
+	}
+	
+	
 }

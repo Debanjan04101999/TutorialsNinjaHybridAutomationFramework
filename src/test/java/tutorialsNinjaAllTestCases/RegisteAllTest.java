@@ -262,7 +262,7 @@ public class RegisteAllTest extends BaseClass {
 
 		String expectedError = "Warning: E-Mail Address is already registered!";
 
-		Assert.assertEquals(driver.findElement(By.className("alert-dismissible")).getText(), expectedError);
+		Assert.assertEquals(registerPage.getExistingEmailWarning(), expectedError);
 
 	}
 
@@ -298,5 +298,149 @@ public class RegisteAllTest extends BaseClass {
 		 */
 
 	}
+	
+	@Test(priority = 12)
+	public void verifyRegisterAccountByKeyboardKeys() {
 
+		
+
+	}
+
+	@Test(priority = 13)
+	public void verifyRegisterAccountPagePlaceholders() {
+
+		Assert.assertEquals(registerPage.getFirstNameFieldPlaceholderText(), "First Name");
+		Assert.assertEquals(registerPage.getLastNameFieldPlaceholderText(), "Last Name");
+		Assert.assertEquals(registerPage.getEmailFieldPlaceholderText(), "E-Mail");
+		Assert.assertEquals(registerPage.getTelephoneFieldPlaceholderText(), "Telephone");
+		Assert.assertEquals(registerPage.getPasswordFieldPlaceholderText(), "Password");
+		Assert.assertEquals(registerPage.getPasswordConfirmFieldPlaceholderText(), "Password Confirm");
+
+	}
+	
+	@Test(priority = 16)
+	public void validateRegisterAcountwhetherTheMandatoryFieldsAreAcceptingOnlySpaces() {
+	
+		registerPage.enterFirstName("  ");
+		registerPage.enterLastName("   ");
+		registerPage.enterEmail("   ");
+		registerPage.enterTelephoneNumber("   ");
+		registerPage.enterPassword("   ");
+		registerPage.enterConfirmPassword("   ");
+		
+		registerPage.selectPrivacyPolicyOption();
+		accountSuccessPage = registerPage.clickContinueButton();
+
+		String expectedFirstNameWarning = "First Name must be between 1 and 32 characters!";
+		String expectedLastNameWarning = "Last Name must be between 1 and 32 characters!";
+		String expectedEmailWarning = "E-Mail Address does not appear to be valid!";
+		String expectedTelephoneWarning = "Telephone must be between 3 and 32 characters!";
+		String expectedPasswordWarning = "Password must be between 4 and 20 characters!";
+		String expectedPasswordConfirmWarning = "Password confirmation does not match password!";
+		String expectedPrivacyPolicyWarning = "Warning: You must agree to the Privacy Policy!";
+
+		
+		Assert.assertEquals(registerPage.getFirstNameWarning(), expectedFirstNameWarning);
+		Assert.assertEquals(registerPage.getLastNameWarning(), expectedLastNameWarning);
+		Assert.assertEquals(registerPage.getEmailWarning(), expectedEmailWarning);
+		Assert.assertEquals(registerPage.getTelephoneWarning(), expectedTelephoneWarning);
+		Assert.assertEquals(registerPage.getPasswordWarning(), expectedPasswordWarning);
+		Assert.assertEquals(registerPage.getPasswordConfirmMismatchWarning(), expectedPasswordConfirmWarning);
+		Assert.assertEquals(registerPage.getPrivacyPolicyWarning(), expectedPrivacyPolicyWarning);
+
+		
+	}
+	
+	@Test(priority = 19)
+	public void verifyRegisterAccountUsingLeadingAndTrailingSpacesAreTrimmedAutomatic() {
+		registerPage.enterFirstName(prop.getProperty("firstName"));
+		registerPage.enterLastName(prop.getProperty("lastName"));
+		registerPage.enterEmail(Utilities.generatebrandNewEmail());
+		registerPage.enterTelephoneNumber(prop.getProperty("telephoneNumber"));
+		registerPage.enterPassword(prop.getProperty("validPassword"));
+		registerPage.enterConfirmPassword(prop.getProperty("validPassword"));
+		registerPage.selectYesForNewsletter();
+		registerPage.selectPrivacyPolicyOption();
+		accountSuccessPage = registerPage.clickContinueButton();
+		Assert.assertTrue(accountSuccessPage.isUserLoggedIn());
+		Assert.assertTrue(accountSuccessPage.isAccountSuccessPageDisplayed());
+		
+	}
+	
+	@Test(priority =20)
+	public void verifyRegisterAccountWhetheTheePrivacyPolicyFieldNotSelectedByDefault()
+	{
+		Assert.assertFalse(registerPage.isPrivacyPolicyOptionSelected());
+	}
+		
+		
+	
+	
+	@Test(priority = 21)
+	public void verifyRegisteringAccountwothoutSelectPrivacyPolicyField()
+	{
+		registerPage.enterFirstName(prop.getProperty("firstName"));
+		registerPage.enterLastName(prop.getProperty("lastName"));
+		registerPage.enterEmail(Utilities.generatebrandNewEmail());
+		registerPage.enterTelephoneNumber(prop.getProperty("telephoneNumber"));
+		registerPage.enterPassword(prop.getProperty("validPassword"));
+		registerPage.selectYesForNewsletter();
+		registerPage.clickContinueButton();
+
+		Assert.assertEquals(registerPage.getPrivacyPolicyWarning(), "Warning: You must agree to the Privacy Policy!");
+		
+	}
+	
+	@Test(priority = 22)
+	public void verifyRegisteringAccountPasswordFieldsForSecurity()
+	{
+		// Verify that password and confirm password fields are of type password
+		Assert.assertEquals(registerPage.getPasswordFieldDomAttribute("type"), "password");
+		Assert.assertEquals(registerPage.getPasswordConfirmFieldDomAttribute("type"), "password");
+
+		
+	}
+	@Test(priority = 24)
+	public void verifyRegisterAccountByFillingPasswordAndNotFillingPasswordConfirmField() {
+		registerPage.enterFirstName(prop.getProperty("firstName"));
+		registerPage.enterLastName(prop.getProperty("lastName"));
+		registerPage.enterEmail(Utilities.generatebrandNewEmail());
+		registerPage.enterTelephoneNumber(prop.getProperty("telephoneNumber"));
+		registerPage.enterPassword(prop.getProperty("validPassword"));
+		registerPage.selectYesForNewsletter();
+		registerPage.selectPrivacyPolicyOption();
+		registerPage.clickContinueButton();
+		
+		Assert.assertEquals(registerPage.getPasswordConfirmMismatchWarning(), "Password confirmation does not match password!");
+			
+
+	}
+	
+	
+	@Test(priority = 25)
+	public void verifyRegisterAccountPageBreadcrumbURLTitleHeading() {
+			Assert.assertEquals(registerPage.didWeNavigatToRegisterPage(), true);
+			Assert.assertEquals(driver.getCurrentUrl(), prop.getProperty("registerPageURL"));
+			Assert.assertEquals(driver.getTitle(), "Register Account");
+			Assert.assertEquals(registerPage.getPageHeading() , "Register Account");
+			
+
+	}
+
+	@Test(priority = 27)
+	public void verifyRegisterAccountInAllEnvironments() {
+
+		registerPage.enterFirstName(prop.getProperty("firstName"));
+		registerPage.enterLastName(prop.getProperty("lastName"));
+		registerPage.enterEmail(Utilities.generatebrandNewEmail());
+		registerPage.enterTelephoneNumber(prop.getProperty("telephoneNumber"));
+		registerPage.enterPassword(prop.getProperty("validPassword"));
+		registerPage.enterConfirmPassword(prop.getProperty("validPassword"));
+		registerPage.selectYesForNewsletter();
+		registerPage.selectPrivacyPolicyOption();
+		accountSuccessPage = registerPage.clickContinueButton();
+		Assert.assertTrue(accountSuccessPage.isUserLoggedIn());
+		Assert.assertTrue(accountSuccessPage.isAccountSuccessPageDisplayed());
+
+	}
 }

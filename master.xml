@@ -7,7 +7,7 @@
 
 				<methods>
 					<include
-						name="validateDifferentWysOfNavigatingToRegisterAccountPage" />
+						name="validateRegisterAcountwhetherTheMandatoryFieldsAreAcceptingOnlySpaces" />
 				 </methods>
 
 			</class>

@@ -6,8 +6,9 @@
       <class name="tutorialsNinjaAllTestCases.RegisteAllTest">
         <methods>
           <include name="setup"/>
-          <include name="verifyRegisterWithoutProvidingAnyFields"/>
           <include name="teardown"/>
+          <include name="validateRegisterAcountwhetherTheMandatoryFieldsAreAcceptingOnlySpaces"/>
+          <include name="setup"/>
         </methods>
       </class> <!-- tutorialsNinjaAllTestCases.RegisteAllTest -->
     </classes>
