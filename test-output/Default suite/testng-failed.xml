@@ -3,14 +3,14 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="tutorialsNinjaAllTestCases.RegisteAllTest">
+      <class name="tutorialsNinjaAllTestCases.LoginAllTest">
         <methods>
           <include name="setup"/>
+          <include name="verifyLoggingIntoApplicationUsingInvalidCredentials"/>
           <include name="teardown"/>
-          <include name="validateRegisterAcountwhetherTheMandatoryFieldsAreAcceptingOnlySpaces"/>
           <include name="setup"/>
         </methods>
-      </class> <!-- tutorialsNinjaAllTestCases.RegisteAllTest -->
+      </class> <!-- tutorialsNinjaAllTestCases.LoginAllTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

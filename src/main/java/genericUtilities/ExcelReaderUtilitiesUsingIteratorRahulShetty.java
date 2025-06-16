@@ -13,7 +13,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
-public class ExcelReaderUtilities {
+public class ExcelReaderUtilitiesUsingIteratorRahulShetty {
 
 	@Test
 	public void readExcelFile() throws IOException {
@@ -50,6 +50,7 @@ public class ExcelReaderUtilities {
 					Row r = rows.next();
 					if (r.getCell(coloumn).getStringCellValue().equalsIgnoreCase("Purchase")) {
 						Iterator<Cell> cv = r.cellIterator();
+						
 					
 						System.out.println(cv.next().getStringCellValue());
 					}

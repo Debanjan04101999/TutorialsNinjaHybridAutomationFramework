@@ -3,11 +3,11 @@
 <suite name="Suite">
 	<test thread-count="5" name="Test">
 		<classes>
-			<class name="tutorialsNinjaAllTestCases.RegisteAllTest">
+			<class name="tutorialsNinjaAllTestCases.LoginAllTest">
 
 				<methods>
 					<include
-						name="validateRegisterAcountwhetherTheMandatoryFieldsAreAcceptingOnlySpaces" />
+						name="verifyLoggingIntoApplicationUsingInvalidCredentials" />
 				 </methods>
 
 			</class>

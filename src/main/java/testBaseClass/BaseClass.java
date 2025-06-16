@@ -47,7 +47,7 @@ public class BaseClass {
 		}
 		
 		driver.manage().deleteAllCookies();
-		//driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+		//driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(2));
 		driver.manage().window().maximize();
 		driver.get(prop.getProperty("appURL1"));// reading usl from properties file
 		
