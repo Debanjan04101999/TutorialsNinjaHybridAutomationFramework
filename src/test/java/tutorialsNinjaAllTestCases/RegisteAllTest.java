@@ -6,7 +6,7 @@ import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-import genericUtilities.Utilities;
+import genericUtilities.CommonUtils;
 import genericUtilities.loggerUtil;
 import pageObjectsRepo.AccountPage;
 import pageObjectsRepo.AccountSuccessPage;
@@ -41,7 +41,7 @@ public class RegisteAllTest extends BaseClass {
 
 		registerPage.enterFirstName(prop.getProperty("firstName"));
 		registerPage.enterLastName(prop.getProperty("lastName"));
-		registerPage.enterEmail(Utilities.generatebrandNewEmail());
+		registerPage.enterEmail(CommonUtils.generatebrandNewEmail());
 		registerPage.enterTelephoneNumber(prop.getProperty("telephoneNumber"));
 		registerPage.enterPassword(prop.getProperty("validPassword"));
 		registerPage.enterConfirmPassword(prop.getProperty("validPassword"));
@@ -82,7 +82,7 @@ public class RegisteAllTest extends BaseClass {
 
 		registerPage.enterFirstName(prop.getProperty("firstName"));
 		registerPage.enterLastName(prop.getProperty("lastName"));
-		registerPage.enterEmail(Utilities.generatebrandNewEmail());
+		registerPage.enterEmail(CommonUtils.generatebrandNewEmail());
 		registerPage.enterTelephoneNumber(prop.getProperty("telephoneNumber"));
 		registerPage.enterPassword(prop.getProperty("validPassword"));
 		registerPage.enterConfirmPassword(prop.getProperty("validPassword"));
@@ -141,7 +141,7 @@ public class RegisteAllTest extends BaseClass {
 
 		registerPage.enterFirstName(prop.getProperty("firstName"));
 		registerPage.enterLastName(prop.getProperty("lastName"));
-		registerPage.enterEmail(Utilities.generatebrandNewEmail());
+		registerPage.enterEmail(CommonUtils.generatebrandNewEmail());
 		registerPage.enterTelephoneNumber(prop.getProperty("telephoneNumber"));
 		registerPage.enterPassword(prop.getProperty("validPassword"));
 		registerPage.enterConfirmPassword(prop.getProperty("validPassword"));
@@ -160,7 +160,7 @@ public class RegisteAllTest extends BaseClass {
 
 		registerPage.enterFirstName(prop.getProperty("firstName"));
 		registerPage.enterLastName(prop.getProperty("lastName"));
-		registerPage.enterEmail(Utilities.generatebrandNewEmail());
+		registerPage.enterEmail(CommonUtils.generatebrandNewEmail());
 		registerPage.enterTelephoneNumber(prop.getProperty("telephoneNumber"));
 		registerPage.enterPassword(prop.getProperty("validPassword"));
 		registerPage.enterConfirmPassword(prop.getProperty("validPassword"));
@@ -202,7 +202,7 @@ public class RegisteAllTest extends BaseClass {
 
 		registerPage.enterFirstName(prop.getProperty("firstName"));
 		registerPage.enterLastName(prop.getProperty("lastName"));
-		registerPage.enterEmail(Utilities.generatebrandNewEmail());
+		registerPage.enterEmail(CommonUtils.generatebrandNewEmail());
 		registerPage.enterTelephoneNumber(prop.getProperty("telephoneNumber"));
 		registerPage.enterPassword(prop.getProperty("validPassword"));
 		registerPage.enterConfirmPassword(prop.getProperty("invalidPassword"));
@@ -276,7 +276,7 @@ public class RegisteAllTest extends BaseClass {
 		loggerUtil.logger.info("******Starting verifyRegisteringAccountByProvidingInvalideTelePhoneNumber******");
 		registerPage.enterFirstName(prop.getProperty("firstName"));
 		registerPage.enterLastName(prop.getProperty("lastName"));
-		registerPage.enterEmail(Utilities.generatebrandNewEmail());
+		registerPage.enterEmail(CommonUtils.generatebrandNewEmail());
 		registerPage.enterTelephoneNumber(prop.getProperty("invalidtelephoneNumber"));
 		registerPage.enterPassword(prop.getProperty("validPassword"));
 		registerPage.enterConfirmPassword(prop.getProperty("validPassword"));
@@ -355,7 +355,7 @@ public class RegisteAllTest extends BaseClass {
 	public void verifyRegisterAccountUsingLeadingAndTrailingSpacesAreTrimmedAutomatic() {
 		registerPage.enterFirstName(prop.getProperty("firstName"));
 		registerPage.enterLastName(prop.getProperty("lastName"));
-		registerPage.enterEmail(Utilities.generatebrandNewEmail());
+		registerPage.enterEmail(CommonUtils.generatebrandNewEmail());
 		registerPage.enterTelephoneNumber(prop.getProperty("telephoneNumber"));
 		registerPage.enterPassword(prop.getProperty("validPassword"));
 		registerPage.enterConfirmPassword(prop.getProperty("validPassword"));
@@ -381,7 +381,7 @@ public class RegisteAllTest extends BaseClass {
 	{
 		registerPage.enterFirstName(prop.getProperty("firstName"));
 		registerPage.enterLastName(prop.getProperty("lastName"));
-		registerPage.enterEmail(Utilities.generatebrandNewEmail());
+		registerPage.enterEmail(CommonUtils.generatebrandNewEmail());
 		registerPage.enterTelephoneNumber(prop.getProperty("telephoneNumber"));
 		registerPage.enterPassword(prop.getProperty("validPassword"));
 		registerPage.selectYesForNewsletter();
@@ -404,7 +404,7 @@ public class RegisteAllTest extends BaseClass {
 	public void verifyRegisterAccountByFillingPasswordAndNotFillingPasswordConfirmField() {
 		registerPage.enterFirstName(prop.getProperty("firstName"));
 		registerPage.enterLastName(prop.getProperty("lastName"));
-		registerPage.enterEmail(Utilities.generatebrandNewEmail());
+		registerPage.enterEmail(CommonUtils.generatebrandNewEmail());
 		registerPage.enterTelephoneNumber(prop.getProperty("telephoneNumber"));
 		registerPage.enterPassword(prop.getProperty("validPassword"));
 		registerPage.selectYesForNewsletter();
@@ -432,7 +432,7 @@ public class RegisteAllTest extends BaseClass {
 
 		registerPage.enterFirstName(prop.getProperty("firstName"));
 		registerPage.enterLastName(prop.getProperty("lastName"));
-		registerPage.enterEmail(Utilities.generatebrandNewEmail());
+		registerPage.enterEmail(CommonUtils.generatebrandNewEmail());
 		registerPage.enterTelephoneNumber(prop.getProperty("telephoneNumber"));
 		registerPage.enterPassword(prop.getProperty("validPassword"));
 		registerPage.enterConfirmPassword(prop.getProperty("validPassword"));

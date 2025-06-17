@@ -10,7 +10,7 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-import genericUtilities.Utilities;
+import genericUtilities.CommonUtils;
 import pageObjectsRepo.LandingPage;
 import testBaseClass.BaseClass;
 
@@ -42,7 +42,7 @@ public class TC_RF_001 extends BaseClass {
 
 		driver.findElement(By.id("input-firstname")).sendKeys("Debanjan");
 		driver.findElement(By.id("input-lastname")).sendKeys("Ghosh Dostidar");
-		driver.findElement(By.id("input-email")).sendKeys(Utilities.generatebrandNewEmail());
+		driver.findElement(By.id("input-email")).sendKeys(CommonUtils.generatebrandNewEmail());
 		driver.findElement(By.id("input-telephone")).sendKeys("1234567890");
 		driver.findElement(By.id("input-password")).sendKeys("12345");
 		driver.findElement(By.id("input-confirm")).sendKeys("12345");

@@ -4,7 +4,7 @@ import java.io.FileReader;
 import java.util.Date;
 import java.util.Properties;
 
-public class Utilities {
+public class CommonUtils {
 	public static final int EXPLICIT_WAIT_TIME = 30;
 	public static final int IMPLICIT_WAIT_TIME = 3;
 

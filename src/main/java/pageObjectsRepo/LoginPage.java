@@ -1,5 +1,6 @@
 package pageObjectsRepo;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -31,6 +32,11 @@ public class LoginPage extends BasePage {
 
 	@FindBy(xpath = "//aside[@id='column-right']//a[text()='Register']")
 	private WebElement registerOption;
+	
+	@FindBy(linkText ="Forgotten Password")
+	private WebElement  forgotPasswordLink;
+	
+	
 
 	public void enterEmailAddress(String email) {
 		emailAddress.clear();
@@ -61,10 +67,16 @@ public class LoginPage extends BasePage {
 		return loginbreadcrumb.isDisplayed();
 	}
 
-	public String invalidCredencialWerning() {
+	public String invalidCredencialWarning() {
 
 		return loginWarning.getText();
 
+	}
+	
+	public ForgottenPasswordPage clickOnForgotPasswordLink() {
+		 forgotPasswordLink.click();
+		return new ForgottenPasswordPage(driver);
+		
 	}
 
 }

@@ -7,7 +7,7 @@
 
 				<methods>
 					<include
-						name="verifyLoggingIntoApplicationUsingInvalidCredentials" />
+						name="verifyForgottenPasswordOptionIsAvailable" />
 				 </methods>
 
 			</class>
