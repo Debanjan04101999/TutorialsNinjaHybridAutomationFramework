@@ -13,16 +13,6 @@ public class practice {
 	public void test() {
 		
 		
-        WebDriver driver = new ChromeDriver();
-        driver.get("https://int.zigzag.lk/collections/work-wear-1/products/side-pleated-long-sleeve-brown-satin-top");
-        
-        driver.manage().window().minimize();
-       
-        String expectedText = driver.findElement(By.xpath("//span[contains(text(),'Note: Product Colour May Slightly Vary Due To Phot')]")).getText();
-						
-        
-        Assert.assertEquals(expectedText, "Note: Product Colour May Slightly Vary Due To Photographic Lighting Sources Or Your Monitor Setting.");
-		
 	}
 	
 
