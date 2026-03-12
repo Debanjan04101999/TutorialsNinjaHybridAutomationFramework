@@ -1,16 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 <suite name="Failed suite [Suite]" guice-stage="DEVELOPMENT">
+  <listeners>
+    <listener class-name="genericUtilities.ExtentReportManager"/>
+  </listeners>
   <test thread-count="5" name="Test(failed)">
     <classes>
-      <class name="tutorialsNinjaAllTestCases.LoginAllTest">
+      <class name="tutorialsNinjaAllTestCases.ScarchAllTest">
         <methods>
+          <include name="validateSearchingForAProductAfterLoginTheApplication"/>
           <include name="setup"/>
-          <include name="verifyLoggingIntoApplicationUsingInvalidCredentials"/>
+          <include name="setup"/>
           <include name="teardown"/>
-          <include name="setup"/>
         </methods>
-      </class> <!-- tutorialsNinjaAllTestCases.LoginAllTest -->
+      </class> <!-- tutorialsNinjaAllTestCases.ScarchAllTest -->
     </classes>
   </test> <!-- Test(failed) -->
 </suite> <!-- Failed suite [Suite] -->

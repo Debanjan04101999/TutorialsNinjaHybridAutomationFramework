@@ -25,4 +25,4 @@ public class NewsletterSubscriptionPage extends BasePage {
 		return noNewsletterOption.isSelected();
 	}
 
-}
+} 

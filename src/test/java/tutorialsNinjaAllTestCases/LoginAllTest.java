@@ -2,8 +2,10 @@ package tutorialsNinjaAllTestCases;
 
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
+import genericUtilities.LoginCaseExcelReaderUtilitiesDDT;
 import pageObjectsRepo.AccountPage;
 import pageObjectsRepo.AccountSuccessPage;
 import pageObjectsRepo.ForgottenPasswordPage;
@@ -34,76 +36,93 @@ public class LoginAllTest extends BaseClass {
 		loginPage = landingPage.selectLoginOption();
 
 	}
-
-	@Test(priority = 1)
-	public void loginWithValidCredentials() {
-		loginPage.enterEmailAddress(prop.getProperty("validEmail"));
-		loginPage.enterPassword(prop.getProperty("validPassword"));
-		myAccountPage = loginPage.clickOnLoginButton();
-		Assert.assertTrue(myAccountPage.didWeNavigatToMyAccounPage());
+	@DataProvider(name = "loginExcelData")
+	public Object[][] loginData() {
+		return LoginCaseExcelReaderUtilitiesDDT.getExcelData(
+				"C:\\Users\\LENOVO\\eclipse-workspace\\TutorialsNinjaHybridAutomationFramework\\src\\test\\recources\\DataDrivenTest.xlsx",
+				"LoginDataDrivenTest");
 	}
 
-	@Test(priority = 2)
-	public void verifyLoggingIntoApplicationUsingInvalidCredentials() {
+	@Test(priority = 1, dataProvider = "loginExcelData")
+	public void verifyloginWithCredentialsCombination(String username, String password, String expected) {
+		myAccountPage = loginPage.login(username, password);
 
-		Assert.assertTrue(loginPage.didWeNavigatToLoginPage());
-		loginPage.enterEmailAddress(prop.getProperty("invalidEmail"));
-		loginPage.enterPassword(prop.getProperty("invalidPassword"));
-		loginPage.clickOnLoginButton();
+		if (expected.equalsIgnoreCase("SUCCESS")) {
 
-		Assert.assertEquals(loginPage.invalidCredencialWarning(),
-				"Warning: No match for E-Mail Address and/or Password.");
-
+			Assert.assertTrue(myAccountPage.didWeNavigatToMyAccounPage());
+		} else {
+			Assert.assertTrue(loginPage.isErrorDisplayed(), "Warning: No match for E-Mail Address and/or Password.");
+		}
 	}
-
-	@Test(priority = 3)
-	public void verifyLoggingIntoApplicationUsingInvalidEmailAndValidPassword() {
-
-		Assert.assertTrue(loginPage.didWeNavigatToLoginPage());
-		loginPage.enterEmailAddress(prop.getProperty("invalidEmail"));
-		loginPage.enterPassword(prop.getProperty("validPassword"));
-		loginPage.clickOnLoginButton();
-
-		Assert.assertEquals(loginPage.invalidCredencialWarning(),
-				"Warning: No match for E-Mail Address and/or Password.");
-
-	}
-
-	@Test(priority = 4)
-	public void verifyLoggingIntoApplicationUsingValidEmailAndInvalidPassword() {
-
-		Assert.assertTrue(loginPage.didWeNavigatToLoginPage());
-		loginPage.enterEmailAddress(prop.getProperty("validEmail"));
-		loginPage.enterPassword(prop.getProperty("invalidPassword"));
-		loginPage.clickOnLoginButton();
-
-		Assert.assertEquals(loginPage.invalidCredencialWarning(),
-				"Warning: No match for E-Mail Address and/or Password.");
-
-	}
-
-	@Test(priority = 5)
-	public void verifyLoggingIntoApplicationWithoutProvidingAnyCreadencial() {
-
-		Assert.assertTrue(loginPage.didWeNavigatToLoginPage());
-		loginPage.clickOnLoginButton();
-
-		Assert.assertEquals(loginPage.invalidCredencialWarning(),
-				"Warning: No match for E-Mail Address and/or Password.");
-
-	}
-	
-	@Test(priority = 6)
-	public void verifyForgottenPasswordOptionIsAvailable() throws InterruptedException {
-
-		Assert.assertTrue(loginPage.didWeNavigatToLoginPage());
-		
-		forgottenPasswordPage = loginPage.clickOnForgotPasswordLink();
-		Assert.assertTrue(forgottenPasswordPage.didWeNavigattoForgottenPasswordPage());
-
-		
-
-	}
-
-
 }
+
+/*
+ * @Test(priority = 1) public void loginWithValidCredentials() {
+ * loginPage.enterEmailAddress(prop.getProperty("validEmail"));
+ * loginPage.enterPassword(prop.getProperty("validPassword")); myAccountPage =
+ * loginPage.clickOnLoginButton();
+ * Assert.assertTrue(myAccountPage.didWeNavigatToMyAccounPage()); }
+ * 
+ * @Test(priority = 2) public void
+ * verifyLoggingIntoApplicationUsingInvalidCredentials() {
+ * 
+ * Assert.assertTrue(loginPage.didWeNavigatToLoginPage());
+ * loginPage.enterEmailAddress(prop.getProperty("invalidEmail"));
+ * loginPage.enterPassword(prop.getProperty("invalidPassword"));
+ * loginPage.clickOnLoginButton();
+ * 
+ * Assert.assertEquals(loginPage.invalidCredencialWarning(),
+ * "Warning: No match for E-Mail Address and/or Password.");
+ * 
+ * }
+ * 
+ * @Test(priority = 3) public void
+ * verifyLoggingIntoApplicationUsingInvalidEmailAndValidPassword() {
+ * 
+ * Assert.assertTrue(loginPage.didWeNavigatToLoginPage());
+ * loginPage.enterEmailAddress(prop.getProperty("invalidEmail"));
+ * loginPage.enterPassword(prop.getProperty("validPassword"));
+ * loginPage.clickOnLoginButton();
+ * 
+ * Assert.assertEquals(loginPage.invalidCredencialWarning(),
+ * "Warning: No match for E-Mail Address and/or Password.");
+ * 
+ * }
+ * 
+ * @Test(priority = 4) public void
+ * verifyLoggingIntoApplicationUsingValidEmailAndInvalidPassword() {
+ * 
+ * Assert.assertTrue(loginPage.didWeNavigatToLoginPage());
+ * loginPage.enterEmailAddress(prop.getProperty("validEmail"));
+ * loginPage.enterPassword(prop.getProperty("invalidPassword"));
+ * loginPage.clickOnLoginButton();
+ * 
+ * Assert.assertEquals(loginPage.invalidCredencialWarning(),
+ * "Warning: No match for E-Mail Address and/or Password.");
+ * 
+ * }
+ * 
+ * @Test(priority = 5) public void
+ * verifyLoggingIntoApplicationWithoutProvidingAnyCreadencial() {
+ * 
+ * Assert.assertTrue(loginPage.didWeNavigatToLoginPage());
+ * loginPage.clickOnLoginButton();
+ * 
+ * Assert.assertEquals(loginPage.invalidCredencialWarning(),
+ * "Warning: No match for E-Mail Address and/or Password.");
+ * 
+ * }
+ * 
+ * @Test(priority = 6) public void verifyForgottenPasswordOptionIsAvailable()
+ * throws InterruptedException {
+ * 
+ * Assert.assertTrue(loginPage.didWeNavigatToLoginPage());
+ * 
+ * forgottenPasswordPage = loginPage.clickOnForgotPasswordLink();
+ * Assert.assertTrue(forgottenPasswordPage.didWeNavigattoForgottenPasswordPage()
+ * );
+ * 
+ * 
+ * 
+ * }
+ */

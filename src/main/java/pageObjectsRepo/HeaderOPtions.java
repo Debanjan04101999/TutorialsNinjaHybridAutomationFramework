@@ -4,12 +4,14 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class LandingPage extends BasePage {
-
-	public LandingPage(WebDriver driver) {
+public class HeaderOPtions extends BasePage {
+	
+	
+	public HeaderOPtions(WebDriver driver) {
 		super(driver);
+		
 	}
-
+	
 	@FindBy(css = "a[title='My Account'] span[class='hidden-xs hidden-sm hidden-md']")
 	private WebElement myAccountDropMenu;
 
@@ -18,11 +20,12 @@ public class LandingPage extends BasePage {
 
 	@FindBy(linkText = "Login")
 	private WebElement loginOption;
+	
+	@FindBy(linkText = "Logout")
+	private WebElement logoutOption;
 
 	@FindBy(name = "search")
 	private WebElement searchBoxField;
-	
-	
 
 	@FindBy(xpath = "//button[@class='btn btn-default btn-lg']")
 	private WebElement searchButton;
@@ -41,19 +44,21 @@ public class LandingPage extends BasePage {
 		 loginOption.click();
 		return new LoginPage(driver);
 	}
-
-
-	public void enterProductIntoSearchBoxField(String productName) {
-	searchBoxField.sendKeys(productName);
+	
+	public AccountLogoutPage clickOnLogoutOption() {
+		logoutOption.click();
+		return new AccountLogoutPage(driver);
+	}
+/*
+	public void enterSearhTerm(String searchTermText) {
+		elementUtils.enterTextIntoElement(searchBoxField, Utilities.EXPLICIT_WAIT_TIME, searchTermText);
 	}
 
 	public SearchPage clickOnSearchButton() {
-		searchButton.click();
+		elementUtils.clickOnElement(searchButton,Utilities.EXPLICIT_WAIT_TIME);
 		return new SearchPage(driver);
-	}
-	
-	public String getSearchBoxPlaceholderText() {
-	    return searchBoxField.getAttribute("placeholder");
-	}
+*/
+
+
 
 }

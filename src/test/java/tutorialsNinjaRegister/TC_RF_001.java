@@ -12,11 +12,13 @@ import org.testng.annotations.Test;
 
 import genericUtilities.CommonUtils;
 import pageObjectsRepo.LandingPage;
+import pageObjectsRepo.RegisterPage;
 import testBaseClass.BaseClass;
 
 public class TC_RF_001 extends BaseClass {
 	
 	LandingPage landingPage;
+	RegisterPage registerPage;
 	
 	@AfterMethod
 	public void teardown() {
@@ -28,7 +30,7 @@ public class TC_RF_001 extends BaseClass {
 		
 		landingPage = new LandingPage(driver);
 		landingPage.clickOnMyAccountDropMenu();
-		//registerPage = landingPage.selectRegisterOption();
+		registerPage = landingPage.selectRegisterOption();
 		
 	}
 
@@ -39,6 +41,7 @@ public class TC_RF_001 extends BaseClass {
 
 		//driver.findElement(By.xpath("//span[text()='My Account']")).click();
 		//driver.findElement(By.linkText("Register")).click();
+		log.info("******Starting TX001_AccountRegistrationTest******");
 
 		driver.findElement(By.id("input-firstname")).sendKeys("Debanjan");
 		driver.findElement(By.id("input-lastname")).sendKeys("Ghosh Dostidar");
