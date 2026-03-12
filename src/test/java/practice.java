@@ -12,7 +12,7 @@ public class practice {
 	@Test
 	public void test() {
 		
-		
+	System.out.println("Hello World");	
 	}
 	
 
