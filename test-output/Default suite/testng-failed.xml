@@ -3,14 +3,14 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="tutorialsNinjaRegister.TC_RF_001">
+      <class name="tutorialsNinjaAllTestCases.LoginAllTest">
         <methods>
+          <include name="setup"/>
           <include name="teardown"/>
+          <include name="verifyloginWithCredentialsCombination" invocation-numbers="1 4 5 7 8 9"/>
           <include name="setup"/>
-          <include name="setup"/>
-          <include name="verifyRegisterWithMandatoryFields"/>
         </methods>
-      </class> <!-- tutorialsNinjaRegister.TC_RF_001 -->
+      </class> <!-- tutorialsNinjaAllTestCases.LoginAllTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
