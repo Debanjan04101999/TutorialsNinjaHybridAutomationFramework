@@ -10,7 +10,7 @@
 
 				<methods>
 					<include
-						name="VerifyScarchingWithAnExistingProductName" />
+						name="verifySearchBySelectingTheCategory" />
 				 </methods>
 
 			</class>

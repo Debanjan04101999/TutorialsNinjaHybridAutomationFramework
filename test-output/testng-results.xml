@@ -2,12 +2,12 @@
 <testng-results ignored="8" total="9" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2026-03-06T18:36:08 IST" name="Suite" finished-at="2026-03-06T18:36:17 IST" duration-ms="8761">
+  <suite started-at="2026-03-18T12:27:32 IST" name="Suite" finished-at="2026-03-18T12:27:48 IST" duration-ms="16337">
     <groups>
     </groups>
-    <test started-at="2026-03-06T18:36:08 IST" name="Test" finished-at="2026-03-06T18:36:17 IST" duration-ms="8761">
+    <test started-at="2026-03-18T12:27:32 IST" name="Test" finished-at="2026-03-18T12:27:48 IST" duration-ms="16337">
       <class name="tutorialsNinjaAllTestCases.ScarchAllTest">
-        <test-method is-config="true" signature="setup(java.lang.String,java.lang.String)[pri:0, instance:tutorialsNinjaAllTestCases.ScarchAllTest@d737b89]" started-at="2026-03-06T18:36:09 IST" name="setup" finished-at="2026-03-06T18:36:15 IST" duration-ms="6314" status="PASS">
+        <test-method is-config="true" signature="setup(java.lang.String,java.lang.String)[pri:0, instance:tutorialsNinjaAllTestCases.ScarchAllTest@d737b89]" started-at="2026-03-18T12:27:33 IST" name="setup" finished-at="2026-03-18T12:27:42 IST" duration-ms="9362" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -23,15 +23,15 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method is-config="true" signature="setup()[pri:0, instance:tutorialsNinjaAllTestCases.ScarchAllTest@d737b89]" started-at="2026-03-06T18:36:15 IST" name="setup" finished-at="2026-03-06T18:36:15 IST" duration-ms="42" status="PASS">
+        <test-method is-config="true" signature="setup()[pri:0, instance:tutorialsNinjaAllTestCases.ScarchAllTest@d737b89]" started-at="2026-03-18T12:27:42 IST" name="setup" finished-at="2026-03-18T12:27:42 IST" duration-ms="166" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method signature="VerifyScarchingWithAnExistingProductName()[pri:1, instance:tutorialsNinjaAllTestCases.ScarchAllTest@d737b89]" started-at="2026-03-06T18:36:15 IST" name="VerifyScarchingWithAnExistingProductName" finished-at="2026-03-06T18:36:16 IST" duration-ms="989" status="PASS">
+        <test-method signature="verifySearchBySelectingTheCategory()[pri:9, instance:tutorialsNinjaAllTestCases.ScarchAllTest@d737b89]" started-at="2026-03-18T12:27:42 IST" name="verifySearchBySelectingTheCategory" finished-at="2026-03-18T12:27:48 IST" duration-ms="5274" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- VerifyScarchingWithAnExistingProductName -->
-        <test-method is-config="true" signature="teardown()[pri:0, instance:tutorialsNinjaAllTestCases.ScarchAllTest@d737b89]" started-at="2026-03-06T18:36:16 IST" name="teardown" finished-at="2026-03-06T18:36:17 IST" duration-ms="369" status="PASS">
+        </test-method> <!-- verifySearchBySelectingTheCategory -->
+        <test-method is-config="true" signature="teardown()[pri:0, instance:tutorialsNinjaAllTestCases.ScarchAllTest@d737b89]" started-at="2026-03-18T12:27:48 IST" name="teardown" finished-at="2026-03-18T12:27:48 IST" duration-ms="446" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- teardown -->
