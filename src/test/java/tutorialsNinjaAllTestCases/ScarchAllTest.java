@@ -127,10 +127,12 @@ public class ScarchAllTest extends BaseClass {
 
 		searchPage.enterProductIntoSearchCreteriaBoxField(prop.getProperty("existingProductThree"));
 		Thread.sleep(2000);
-		searchPage.selectCategoryFromDropDown("categoryName");
+		searchPage.clickOnScerchInProductDescriptionCheckBox();
 		searchPage.clickOnSearchButton();
+		Assert.assertTrue(searchPage.isProductHavingTextInItsDescriptionDisplayedInSearchResults());
 
-		searchPage.enterProductIntoSearchCreteriaBoxField(prop.getProperty("existingProductThree"));
+
+		
 
 	}
 }
